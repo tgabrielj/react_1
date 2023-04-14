@@ -1,22 +1,16 @@
 import React from "react";
 import  ReactDOM from "react-dom/client";
+import {Greeting,UserCard} from "./Greeting";
+import Product, {Navbar} from "./Product";
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-function Greeting(){
-    const user = {
-        firstName: "Joe",
-        lastname: "Mc Millan"
-    };
-    return(
-        <div>
-            <h1>{user.firstName}</h1>
-            <h1>{user.lastname}</h1>
-        </div>
-    )
-}
+
 root.render(
     <div>
         <Greeting/>
+        <UserCard/>
+        <Product/>
+        <Navbar/>
     </div>
 )

@@ -5,11 +5,21 @@ import Product, {Navbar} from "./Product";
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-
 root.render(
     <div>
-        <Greeting/>
-        <UserCard/>
+        <Greeting title= "hola"/>
+        <Greeting title= "bye"/>
+        <Greeting title= {30}/>
+        <Greeting title= {true}/>
+        <Greeting title = {[1,2,3]}/>
+        <UserCard 
+        name = "Ryan Ray"
+        amount= {200}
+        married={true}
+        points = {[99,33.3,22.2]}
+        address = {{ street : "123 Main Street", city:"New York"}}
+        greet = {function () { alert('Hello') }}
+        />
         <Product/>
         <Navbar/>
     </div>

@@ -10,16 +10,21 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 
 // FUERA DEL HTML ESTO ES JS
 
+const handleChange = (e) => {
+    console.log(e.target.value)
+}
+
 root.render(
     <>
         <TaskCard ready = {true}/>
         <Saludar/>
         <Button text="Saludar"/>
 
-        <input onChange={function(){
-            console.log('escribiendo en el input')
-        }}/>
+        <input id ="hola" onChange={handleChange}/>
 
+        <input id ="chau" onChange={handleChange}/>
+
+        <input id ="para_doble_click" onDoubleClick = { () => console.log("doble click")}/>
 
         {/*<Button text = 'Enviar' name = "gabriel"/>
         <Button text = 'Salir'/>

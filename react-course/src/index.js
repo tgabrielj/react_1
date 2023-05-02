@@ -3,17 +3,29 @@ import  ReactDOM from "react-dom/client";
 import {Greeting,UserCard} from "./Greeting";
 import Product, {Navbar} from "./Product";
 import {Button} from './Button'
+import { TaskCard } from "./Task";
+import {Saludar} from "./Saludar"
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 // FUERA DEL HTML ESTO ES JS
 
 root.render(
-    <div>
-        <Button text = 'Enviar' name = "gabriel"/>
+    <>
+        <TaskCard ready = {true}/>
+        <Saludar/>
+        <Button text="Saludar"/>
+
+        <input onChange={function(){
+            console.log('escribiendo en el input')
+        }}/>
+
+
+        {/*<Button text = 'Enviar' name = "gabriel"/>
         <Button text = 'Salir'/>
 
-        <Button/>
+        <Button/>*/}
+
         {/* <Greeting title= "hola"/>
         <Greeting title= "bye"/>
         <Greeting title= {30}/>
@@ -29,5 +41,5 @@ root.render(
         />
         <Product/>
         <Navbar/> */}
-    </div>
+    </>
 )

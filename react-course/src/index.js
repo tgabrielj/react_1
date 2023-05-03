@@ -5,8 +5,23 @@ import Product, {Navbar} from "./Product";
 import {Button} from './Button'
 import { TaskCard } from "./Task";
 import {Saludar} from "./Saludar"
+import { Post } from "./Posts";
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
+
+const users = [
+    {
+        id: 1,
+        name: 'Ryan ray',
+        image: 'https://robohash.org/user6'
+    },
+    {
+        id: 2,
+        name: 'Joe',
+        image: 'https://robohash.org/user7'
+    }
+]
+
 
 // FUERA DEL HTML ESTO ES JS
 
@@ -16,7 +31,17 @@ const handleChange = (e) => {
 
 root.render(
     <>
-        <TaskCard ready = {true}/>
+    {users.map((user, i) => {
+        return( 
+            <div key = {i}>
+                <h1>{user.name}</h1>
+                <img src={user.image}/>
+            </div>
+            );
+        })}
+
+    <Post/>
+        {/*<TaskCard ready = {true}/>
         <Saludar/>
         <Button text="Saludar"/>
 
@@ -25,6 +50,17 @@ root.render(
         <input id ="chau" onChange={handleChange}/>
 
         <input id ="para_doble_click" onDoubleClick = { () => console.log("doble click")}/>
+
+        <form onSubmit={(e) => {
+            e.preventDefault()
+            console.log('enviado')
+            alert('enviado')
+        }}>
+            <h1>Registro de usuario</h1>
+
+            <button>Send</button>
+        </form>
+        */}
 
         {/*<Button text = 'Enviar' name = "gabriel"/>
         <Button text = 'Salir'/>
@@ -47,4 +83,4 @@ root.render(
         <Product/>
         <Navbar/> */}
     </>
-)
+);

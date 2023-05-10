@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import  ReactDOM from "react-dom/client";
 import {Greeting,UserCard} from "./Greeting";
 import Product, {Navbar} from "./Product";
@@ -27,6 +27,49 @@ const users = [
 
 const handleChange = (e) => {
     console.log(e.target.value)
+}
+
+function Counter(){
+
+    const [ counter, setCounter] = useState(0);
+
+    return(
+        <div>
+            <h1>Counter: {counter}</h1>
+            <button onClick={() => {
+                setCounter(counter +1 )
+            }}>
+                Sumar
+            </button>
+
+            <button onClick={() => {
+                setCounter(counter - 1 )
+            }}>
+                Restar
+            </button>
+
+            <button onClick={() => {
+                setCounter(1000)
+            }}>
+                Reiniciar
+            </button>
+
+        </div>
+    )
+}
+
+function InputMensaje(){
+    const [ mensaje , setMensaje] = useState('');
+    return (
+        <div>
+            <input onChange={e => setMensaje(e.target.value)}/>
+            <button onClick={() => {
+                alert("El mensaje es: " + mensaje)
+            }}>
+                Save
+            </button>
+        </div>
+    )
 }
 
 root.render(
@@ -82,5 +125,7 @@ root.render(
         />
         <Product/>
         <Navbar/> */}
+        <Counter/>
+        <InputMensaje/>
     </>
 );

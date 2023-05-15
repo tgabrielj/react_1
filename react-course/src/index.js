@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import  ReactDOM from "react-dom/client";
 import {Greeting,UserCard} from "./Greeting";
 import Product, {Navbar} from "./Product";
@@ -6,6 +6,7 @@ import {Button} from './Button'
 import { TaskCard } from "./Task";
 import {Saludar} from "./Saludar"
 import { Post } from "./Posts";
+import { func } from "prop-types";
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -28,6 +29,7 @@ const users = [
 const handleChange = (e) => {
     console.log(e.target.value)
 }
+
 
 function Counter(){
 
@@ -60,6 +62,12 @@ function Counter(){
 
 function InputMensaje(){
     const [ mensaje , setMensaje] = useState('');
+    const [ counter, setCounter] = useState(0);
+
+    useEffect(function(){
+        console.log('render')
+    }, [counter])
+
     return (
         <div>
             <input onChange={e => setMensaje(e.target.value)}/>
@@ -68,6 +76,17 @@ function InputMensaje(){
             }}>
                 Save
             </button>
+
+            <hr></hr>
+
+            <h1>Counter: {counter}</h1>
+            <button onClick={() => {
+                setCounter(counter +1 )
+            }}>
+                Incrementar
+            </button>
+
+
         </div>
     )
 }

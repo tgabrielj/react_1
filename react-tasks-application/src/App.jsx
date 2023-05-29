@@ -1,13 +1,22 @@
-import TaskList from './TastkList'
+import TaskList from './TastkList';
+import TaskForm from './assets/TaskForm';
+import { tasks as data} from "./tasks";
+import {useState, useEffect} from 'react';
 
-function HolaMundo() {
+function App() {
+
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    setTasks(data)
+  }, [])
+
   return (
-    <div>
-
-      <TaskList/>
-
-    </div>
+    <>
+      <TaskForm/>
+      <TaskList tasks = {tasks}/>
+    </>
   )
 }
 
-export default HolaMundo
+export default App

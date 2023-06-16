@@ -19,10 +19,14 @@ function App() {
     }])
   }
 
+  function deleteTask(){
+    console.log(tasks)
+  }
+
   return (
     <>
       <TaskForm createTask = {createTask}/>
-      <TaskList tasks = {tasks}/>
+      <TaskList tasks = {tasks} deleteTask={deleteTask}/>
     </>
   )
 }
